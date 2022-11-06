@@ -1,4 +1,5 @@
 import { GoSearch } from "react-icons/go";
+import { Select } from "../Select";
 
 import {
   ContainerFilters,
@@ -18,6 +19,55 @@ interface ISearch {
   type: (value: any) => void;
 }
 
+const optionsOrder = [
+  {
+    id: 1,
+    label: "Ordem Ascendente",
+    value: "asc",
+  },
+  {
+    id: 2,
+    label: "Ordem Descrecente",
+    value: "desc",
+  },
+];
+
+const optionsSort = [
+  {
+    id: 1,
+    label: "Estrelas",
+    value: "stars",
+  },
+  {
+    id: 2,
+    label: "Atualizações",
+    value: "updated",
+  },
+  {
+    id: 3,
+    label: "Forks",
+    value: "forks",
+  },
+];
+
+const optionsType = [
+  {
+    id: 1,
+    label: "Todos",
+    value: "all",
+  },
+  {
+    id: 2,
+    label: "Dono",
+    value: "owner",
+  },
+  {
+    id: 3,
+    label: "Membro",
+    value: "member",
+  },
+];
+
 export function Search({ value, search, order, sort, type }: ISearch) {
   return (
     <SearchContainer>
@@ -35,33 +85,13 @@ export function Search({ value, search, order, sort, type }: ISearch) {
       </SearchForm>
       <ContainerFilters>
         <ContainerOrderFilter>
-          <label className="label" htmlFor="orderInput">
-            Ordem:
-          </label>
-          <select name="orderInput" onChange={(e) => order(e.target.value)}>
-            <option value="asc">Ordem Ascendente</option>
-            <option value="desc">Ordem Descrecente</option>
-          </select>
+          <Select options={optionsOrder} order={order} />
         </ContainerOrderFilter>
         <ContainerSortFilter>
-          <label className="label" htmlFor="sortInput">
-            Ordernar por:
-          </label>
-          <select name="sortInput" onChange={(e) => sort(e.target.value)}>
-            <option value="stars">Estrelas</option>
-            <option value="updated">Atualizações</option>
-            <option value="forks">Forks</option>
-          </select>
+          <Select options={optionsSort} sort={sort} />
         </ContainerSortFilter>
         <ContainerSortFilter>
-          <label className="label" htmlFor="typeInput">
-            Ordernar por tipo:
-          </label>
-          <select name="sortInput" onChange={(e) => type(e.target.value)}>
-            <option value="all">Todos</option>
-            <option value="owner">Dono</option>
-            <option value="member">Membro</option>
-          </select>
+          <Select options={optionsType} type={type} />
         </ContainerSortFilter>
       </ContainerFilters>
     </SearchContainer>
