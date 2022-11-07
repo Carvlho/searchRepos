@@ -5,6 +5,7 @@ import {
   ContainerFilters,
   ContainerOrderFilter,
   ContainerSortFilter,
+  ContainerTypeFilter,
   SearchButton,
   SearchContainer,
   SearchForm,
@@ -90,9 +91,9 @@ export function Search({ value, search, order, sort, type }: ISearch) {
         <ContainerSortFilter>
           <Select options={optionsSort} sort={sort} />
         </ContainerSortFilter>
-        <ContainerSortFilter>
+        <ContainerTypeFilter>
           <Select options={optionsType} type={type} />
-        </ContainerSortFilter>
+        </ContainerTypeFilter>
       </ContainerFilters>
     </SearchContainer>
   );

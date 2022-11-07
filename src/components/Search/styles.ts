@@ -37,6 +37,8 @@ export const ContainerFilters = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
 
+  align-items: center;
+
   margin-top: 1rem;
 `;
 
@@ -50,4 +52,17 @@ export const ContainerSortFilter = styled.div`
   flex-direction: column;
 
   margin-left: 0.5rem;
+`;
+
+export const ContainerTypeFilter = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 0.5rem;
+
+  @media screen and (max-width: 764px) {
+    margin-top: 0.3rem;
+
+    margin-left: 0;
+  }
 `;
